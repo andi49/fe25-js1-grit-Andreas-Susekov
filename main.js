@@ -18,15 +18,14 @@ const fetchAPI = async() => {
     }
 }
 
-document.getElementById('searchbtn').addEventListener('click', async () => {
+    document.getElementById('searchbtn').addEventListener('click', async () => {
     const cityData = await fetchAPI()
 
     const cityName = cityData.city.name
     document.getElementById('capitalName').innerHTML = cityName;
 
     const getTemp = cityData.list[0].main.temp
-     document.getElementById('temp').innerHTML = getTemp + ' ' + 'grader'
+     document.getElementById('temp').innerHTML = getTemp + ' ' + 'celcius'
     
-    // const result = document.querySelector('.temp')
-    // result.innerHTML = cityData.list[0].main.temp
+
 })
