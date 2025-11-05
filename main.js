@@ -25,7 +25,10 @@ const fetchAPI = async() => {
     document.getElementById('capitalName').innerHTML = cityName;
 
     const getTemp = cityData.list[0].main.temp
-     document.getElementById('temp').innerHTML = getTemp + ' ' + 'celcius'
+    document.getElementById('temp').innerHTML = getTemp + ' ' + 'celcius'
+
+     const getWindSpeed = cityData.list[0].wind.speed
+    document.getElementById('windspeed').innerHTML = getWindSpeed + ' ' + 'm/s'
     
 
 })
