@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-      <!-- Fonts stop -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Fonts stop -->
+    <link rel="stylesheet" href="style.css" />
     <title>Weather Right now</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="boxone">
-        <input type="text" placeholder="Enter a city" id="cityInput">
-        <button class="btnOne" id="searchbtn">test</button>
+      <input type="text" placeholder="Enter a city" id="cityInput" />
+      <div class="unit-toggle">
+        <input type="checkbox" id="unitToggle" />
+        <label for="unitToggle" class="toggle-label">
+          <span class="celsius">°C</span>
+          <span class="fahrenheit">°F</span>
+          <div class="toggle-ball"></div>
+        </label>
+      </div>
+      <button class="btnOne" id="searchbtn">test</button>
     </div>
 
     <div class="boxtwo">
-            <h1 class="capitalname" id="capitalName">Input a City Name</h1>
-            <img id="weatherIcon" alt="">
-            <p class="temp" id="temp"></p>
-            <p class="windspeed" id="windspeed"></p>
+      <h1 class="capitalname" id="capitalName">Input a City Name</h1>
+      <img id="weatherIcon" alt="" />
+      <p class="temp" id="temp"></p>
+      <p class="windspeed" id="windspeed"></p>
     </div>
-</body>
-<script src="main.js"></script>
+  </body>
+  <script src="main.js"></script>
 </html>
