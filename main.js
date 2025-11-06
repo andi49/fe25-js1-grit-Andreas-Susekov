@@ -24,6 +24,7 @@ const fetchAPI = async(unit) => {
     const getTempK = document.getElementById('unitToggle').checked
     const unit = getTempK ? 'imperial' : 'metric'
     const unitSymbol = getTempK ? '°F' : '°C'
+    const windUnit = getTempK ? 'mph' : 'm/s';
 
     const cityData = await fetchAPI(unit)
 
@@ -31,11 +32,19 @@ const fetchAPI = async(unit) => {
     document.getElementById('capitalName').innerHTML = cityName;
 
     const getTemp = cityData.list[0].main.temp
-    document.getElementById('temp').innerHTML = `${getTemp} ${unitSymbol}`;
-  
+    document.getElementById('temp').innerHTML = `${Math.round(getTemp)} ${unitSymbol}`;
+        console.log()
+         const bkColor = document.querySelector('.boxtwo')
+        if (`${getTemp}` === 11) {
+       bkColor.style.backgroundColor = 'hsl(40, 100%, 50%)'
+        } else if (`${getTemp}` >= 15){  
+            bkColor.style.backgroundColor = 'hsl(30, 100%, 50%)'
+        } else {
+
+        }
 
  const getWindSpeed = cityData.list[0].wind.speed
-    document.getElementById('windspeed').innerHTML = getWindSpeed + ' ' + 'm/s'
+    document.getElementById('windspeed').innerHTML = `${getWindSpeed} ${windUnit}`
     
 
     const iconTemp = document.getElementById('weatherIcon')
@@ -46,7 +55,7 @@ const fetchAPI = async(unit) => {
 
      if (Math.round(getTemp) == 10) {
        const bkColor = document.querySelector('.boxtwo')
-       bkColor.style.backgroundColor = 'blue'
+       bkColor.style.backgroundColor = ''
     }
 
 })
