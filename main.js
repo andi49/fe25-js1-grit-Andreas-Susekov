@@ -31,9 +31,25 @@ document.getElementById("searchbtn").addEventListener("click", async () => {
   const iconTemp = document.getElementById("weatherIcon");
   const weather = cityData.list[0].weather[0];
   const URLICON = `https://openweathermap.org/img/wn/${weather.icon}@2x.png`;
-
   iconTemp.src = URLICON;
 
+
+   function calcTemp(element) {
+    const minTemp = -20;
+    const maxTemp = 40;
+
+    const tempS = Math.max(minTemp, Math.min(maxTemp, getTemp));
+
+    const ratio = (tempS - minTemp) / (maxTemp - minTemp);
+    const hue = 270 - ratio * 270;
+
+    element.style.backgroundColor = `hsl(${hue}, 100%, 50%)`;
+  }
+
+  const currentBox = document.getElementById('currentBox')
+  calcTemp(currentBox, getTemp)
+  
+ 
   for (let i = 1; i <= 5; i++) {
     
     const realDiv = document.getElementById("container");
@@ -50,15 +66,7 @@ document.getElementById("searchbtn").addEventListener("click", async () => {
     fakeTemp.appendChild(fakeP);
 
     const getTemp = cityData.list[i].main.temp;
-
-    const minTemp = -20;
-    const maxTemp = 40;
-    const tempS = Math.max(minTemp, Math.min(maxTemp, getTemp));
-
-    const ratio = (tempS - minTemp) / (maxTemp - minTemp);
-    const hue = 270 - ratio * 270;
-
-    fakeTemp.style.backgroundColor = `hsl(${hue}, 100%, 50%)`;
+    calcTemp(fakeTemp, getTemp);
     fakeh1.innerHTML = Math.round(cityData.list[i].main.temp) + "°C";
     fakeh2.innerHTML = cityData.list[i].wind.speed + "m/s";
     fakeP.innerHTML = cityData.list[i].dt_txt;
