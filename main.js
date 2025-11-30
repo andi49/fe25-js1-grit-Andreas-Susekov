@@ -13,7 +13,7 @@ const fetchAPI = async () => {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 document.getElementById("searchbtn").addEventListener("click", async () => {
   const cityData = await fetchAPI();
